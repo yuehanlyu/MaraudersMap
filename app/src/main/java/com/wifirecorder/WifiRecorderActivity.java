@@ -138,7 +138,7 @@ public class WifiRecorderActivity extends Activity
 		final EditText edtFileName = new EditText(WifiRecorderActivity.this);
 		new AlertDialog.Builder(WifiRecorderActivity.this)
 		.setTitle("储存到文件")
-		.setIcon(R.drawable.ic_launcher)
+		.setIcon(R.drawable.qiandaijun)
 		.setMessage("请命名文件:")
 		.setView(edtFileName)
 		.setNegativeButton("取消", new DialogInterface.OnClickListener(){

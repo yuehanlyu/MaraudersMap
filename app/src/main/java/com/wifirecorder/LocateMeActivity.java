@@ -18,9 +18,9 @@ public class LocateMeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.officemap);
+        setContentView(R.layout.officemap);  //使用有办公区背景图的layout
 
-//        //todo： 下面这段意思不明
+//        //todo： 下面这段意思不明，好像是通过一个button去另一个界面
 //        Button next = (Button) findViewById(R.id.btnLocate);
 //        next.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View view) {
