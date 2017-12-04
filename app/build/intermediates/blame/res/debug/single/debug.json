@@ -1,23 +1,7 @@
 [
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-mdpi_map_8f.png.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-mdpi/map_8f.png"
-    },
-    {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_map_8f.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/map_8f.png"
-    },
-    {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/layout/main.xml"
-    },
-    {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
@@ -32,16 +16,12 @@
         "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/raw/music.mp3"
     },
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_qiandaijun.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/qiandaijun.png"
-    },
-    {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/menu_wifi_recorder.xml.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/menu/wifi_recorder.xml"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xxhdpi_map_8f.png.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xxhdpi/map_8f.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/raw_ap_mac.csv.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/raw/ap_mac.csv"
     },
     {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
@@ -52,10 +32,6 @@
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-mdpi/qiandaijun.png"
     },
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/drawable-hdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/menu_wifi_recorder.xml.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/menu/wifi_recorder.xml"
     },
@@ -64,28 +40,56 @@
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/qiandaijun.png"
     },
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-hdpi_map_8f.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/map_8f.png"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/layout_officemap.xml.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/layout/officemap.xml"
-    },
-    {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xxhdpi_qiandaijun.png.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xxhdpi/qiandaijun.png"
     },
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/layout/main.xml"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_map_8f.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/map_8f.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xhdpi_qiandaijun.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xhdpi/qiandaijun.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/menu_wifi_recorder.xml.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/menu/wifi_recorder.xml"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-hdpi_map_8f.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/map_8f.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
+        "source": "/Users/yuehan/Documents/Subjects/Projects/WifiRecorder-master1/app/src/main/res/layout/main.xml"
     },
     {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/raw_music.mp3.flat",

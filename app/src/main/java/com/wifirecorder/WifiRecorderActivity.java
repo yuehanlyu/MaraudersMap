@@ -76,7 +76,7 @@ public class WifiRecorderActivity extends Activity
 		btnExit.setOnClickListener(btnListener);
 		btnLocate.setOnClickListener(btnListener);
 		//设定ListView选取事件
-		listWifiResult.setOnItemClickListener(listListener);
+		//listWifiResult.setOnItemClickListener(listListener);
 		listWifiResult.setOnItemLongClickListener(listLongListener);
 	}
 
@@ -115,48 +115,6 @@ public class WifiRecorderActivity extends Activity
 		Log.d(msg, "The onDestroy() event");
 	}
 
-	//测试：启动服务
-	public void startService(View view){
-		startService(new Intent(getBaseContext(), MyService.class));
-	}
-
-	public void stopService(View view){
-		stopService(new Intent(getBaseContext(), MyService.class));
-	}
-
-	// 测试：数据库
-	public void onClickAddName(View view) {
-		// Add a new student record
-		ContentValues values = new ContentValues();
-		values.put(StudentsProvider.NAME,
-				((EditText)findViewById(R.id.editText2)).getText().toString());
-
-		values.put(StudentsProvider.GRADE,
-				((EditText)findViewById(R.id.editText3)).getText().toString());
-
-		Uri uri = getContentResolver().insert(
-				StudentsProvider.CONTENT_URI, values);
-
-		Toast.makeText(getBaseContext(),
-				uri.toString(), Toast.LENGTH_LONG).show();
-	}
-	public void onClickRetrieveStudents(View view) {
-		// Retrieve student records
-		String URL = "content://com.wifirecorder.StudentsProvider";
-
-		Uri students = Uri.parse(URL);
-		Cursor c = managedQuery(students, null, null, null, "name");
-
-		if (c.moveToFirst()) {
-			do{
-				Toast.makeText(this,
-						c.getString(c.getColumnIndex(StudentsProvider._ID)) +
-								", " +  c.getString(c.getColumnIndex( StudentsProvider.NAME)) +
-								", " + c.getString(c.getColumnIndex( StudentsProvider.GRADE)),
-						Toast.LENGTH_SHORT).show();
-			} while (c.moveToNext());
-		}
-	}
 	private Button.OnClickListener btnListener = new Button.OnClickListener()
 	{
 		@Override
@@ -164,18 +122,19 @@ public class WifiRecorderActivity extends Activity
 			// TODO Auto-generated method stub
 			switch(v.getId())
 			{
-				case R.id.btnRefresh:
+				case R.id.btnRefresh:  //刷新
 					//取得Wifi列表
 					GetWifiList();
 					break;
 				case R.id.btnRecord:
-					RecordCheckWindow();
+					//RecordCheckWindow();   //手动输入文件名
+					AutoSaveData();   //自动保存为rssidata.txt
 					break;
-				case R.id.btnExit:
+				case R.id.btnExit:   //退出
 					CloseWifi();
 					finish();
 					break;
-                case R.id.btnLocate:
+                case R.id.btnLocate:   //定位
                     Intent myIntent = new Intent(v.getContext(), LocateMeActivity.class);
                     startActivityForResult(myIntent, 0);
 			}
@@ -183,28 +142,26 @@ public class WifiRecorderActivity extends Activity
 	};
 
 
-	private ListView.OnItemClickListener listListener = new ListView.OnItemClickListener()
-	{		
-		int ItemSelectedInVector;
-		@Override
-		public void onItemClick(AdapterView<?> parent, View v, int position,
-				long id) {
-			
-			//如果被勾选就加入Vector
-			if(listWifiResult.isItemChecked(position))
-				WifiSelectedItem.add(WifiInfo[position]);
-			//如果被取消勾选就从Vector移除
-			else
-			{
-				//取得目前勾选项目在Vector中的位置
-				for(int i=0;i<WifiSelectedItem.size();i++)	
-					if(WifiSelectedItem.get(i).equals(WifiInfo[position]))
-						ItemSelectedInVector = i; 
-				WifiSelectedItem.remove(ItemSelectedInVector);
-			}
-		}
-		
-	};
+//	private ListView.OnItemClickListener listListener = new ListView.OnItemClickListener()
+//	{
+//		int ItemSelectedInVector;
+//		@Override
+//		public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//			//如果被勾选就加入Vector
+//			if(listWifiResult.isItemChecked(position))
+//				WifiSelectedItem.add(WifiInfo[position]);
+//			//如果被取消勾选就从Vector移除
+//			else
+//			{
+//				//取得目前勾选项目在Vector中的位置
+//				for(int i=0;i<WifiSelectedItem.size();i++)
+//					if(WifiSelectedItem.get(i).equals(WifiInfo[position]))
+//						ItemSelectedInVector = i;
+//				WifiSelectedItem.remove(ItemSelectedInVector);
+//			}
+//		}
+//
+//	};
 	private ListView.OnItemLongClickListener listLongListener = new ListView.OnItemLongClickListener()
 	{
 
@@ -212,42 +169,43 @@ public class WifiRecorderActivity extends Activity
 		public boolean onItemLongClick(AdapterView<?> parent, View v,
 				int position, long id) {
 			// TODO Auto-generated method stub
-			WifiInfo(position);
+			ShowWifiInfo(position);
 			return false;
 		}
 	};
-	private void RecordCheckWindow()
-	{
-		final EditText edtFileName = new EditText(WifiRecorderActivity.this);
-		new AlertDialog.Builder(WifiRecorderActivity.this)
-		.setTitle("储存到文件")
-		.setIcon(R.drawable.qiandaijun)
-		.setMessage("请命名文件:")
-		.setView(edtFileName)
-		.setNegativeButton("取消", new DialogInterface.OnClickListener(){
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		})
-		.setPositiveButton("确认",new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				//将选取的list记录并生成档案
-				DataFormer(edtFileName.getText().toString());
-			}
-		}).show();
-	}
-    // TODO: 生成地图界面。第一步先将建筑布置图作为背景图
-	private void LocationMap()
-    {
 
-    }
-	private void WifiInfo(int index)
+	private void AutoSaveData(){
+		DataFormer("rssidata");
+	}
+
+//	private void RecordCheckWindow()
+//	{
+//		final EditText edtFileName = new EditText(WifiRecorderActivity.this);
+//		new AlertDialog.Builder(WifiRecorderActivity.this)
+//		.setTitle("储存到文件")
+//		.setIcon(R.drawable.qiandaijun)
+//		.setMessage("请命名文件:（不加.txt）")
+//		.setView(edtFileName)
+//		.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				// TODO Auto-generated method stub
+//
+//			}
+//
+//		})
+//		.setPositiveButton("确认",new DialogInterface.OnClickListener() {
+//
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				// TODO Auto-generated method stub
+//				//将选取的list记录并生成档案
+//				DataFormer(edtFileName.getText().toString());
+//			}
+//		}).show();
+//	}
+
+	private void ShowWifiInfo(int index)   //长按的效果
 	{
 		new AlertDialog.Builder(WifiRecorderActivity.this)
 		.setTitle("Details")
@@ -266,6 +224,12 @@ public class WifiRecorderActivity extends Activity
 	}
 	private void DataFormer(String FileName)
 	{
+
+		// 所有的WifiInfo加入WifiSelectedItem
+		//todo: 限定强度最大的几个值
+		Vector<String> WifiSelectedItem = new Vector<String>();
+		for(int i=0;i<WifiInfo.length;i++)
+			WifiSelectedItem.add(WifiInfo[i]);
 		String WifiDatas = curTime+"\r\n";
 		//将Wifi信息存进WifDatas
 		File directory = new File(WifiRecorderActivity.this.getFilesDir()+File.separator+"WifiDatas");
@@ -281,7 +245,7 @@ public class WifiRecorderActivity extends Activity
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(WifiDatas);
 			Toast.makeText(WifiRecorderActivity.this
-							,FileName+".txt is successfully saved",Toast.LENGTH_LONG).show();
+							,FileName+"is successfully saved",Toast.LENGTH_LONG).show();
 			bw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -342,7 +306,7 @@ public class WifiRecorderActivity extends Activity
 				+time.get(Calendar.SECOND);
 		txtTime.setText("Time:"+curTime);
 		String dist;
-		//将Wifi信息放入打印阵列中
+		//将Wifi信息放入main.xml打印阵列中     Wifis是一个string矩阵
 		for(int i=0;i<WifiList.size();i++) {
             //todo: 计算距离
             //dist = String.valueOf(getPicLen(WifiList.get(i).level));
@@ -350,34 +314,39 @@ public class WifiRecorderActivity extends Activity
             Wifis[i] = WifiList.get(i).SSID  //SSID
                     + "\r\r" + WifiList.get(i).BSSID + "\r\r"//MAC地址
                     + WifiList.get(i).level + "dBm" + "\r\r"//信号强弱、
-                    + dist+"m\r\r"+
+                    + dist+"m\r\r"+ //距离
             + WifiList.get(i).frequency; //信道
         }
         //将WifiSelectedItem中暂存的资料清空
 		WifiSelectedItem.removeAllElements();
-		//设定Wifi清单
+		//设定地图页面的Wifi清单
 		SetWifiList(Wifis);
 	}
 
-	private void SetWifiList(String[] Wifis)
+	private void SetWifiList(String[] Wifis)  //WifiInfo将打印在地图页面 officemap.xml
 	{
 	    //建立ArrayAdapter
 		 ArrayAdapter<String> adapterWifis = new ArrayAdapter<String>(WifiRecorderActivity.this
 						,android.R.layout.simple_list_item_checked,Wifis);
         //设定ListView为多选
 		listWifiResult.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+		//listWifiResult.setItemChecked(1,true);
+
 		//设定ListView来源
 		listWifiResult.setAdapter(adapterWifis);
         //初始化WifiInfo阵列
 		WifiInfo = null;
         //设定Wifi信息放入阵列中(记录用)
 		WifiInfo = new String[WifiList.size()];
-		
-		for(int i=0;i<WifiList.size();i++)
-			WifiInfo[i] = "SSID:"+WifiList.get(i).SSID +"\r\n"      //SSID
-						+"BSSID:"+WifiList.get(i).BSSID+"\r\n"   //BSSID
-						+"RSSI："+WifiList.get(i).level+"dBm"+"\r\n" //信号强弱
-						+"Frequency:"+WifiList.get(i).frequency+"MHz"+"\r\n"; //信道频率
+		String dist;
+		for(int i=0;i<WifiList.size();i++) {
+//			WifiInfo[i] = "SSID:"+WifiList.get(i).SSID +"\r\n"      //SSID
+//						+"BSSID:"+WifiList.get(i).BSSID+"\r\n"   //BSSID
+//						+"RSSI："+WifiList.get(i).level+"dBm"+"\r\n" //信号强弱
+//						+"Frequency:"+WifiList.get(i).frequency+"MHz"+"\r\n"; //信道频率
+			dist = String.valueOf(Math.floor(getPicLen(WifiList.get(i).level) * 100) / 100);
+			WifiInfo[i] = WifiList.get(i).BSSID + "  " + dist;
+		}
 	}
 	
 

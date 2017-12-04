@@ -12,19 +12,30 @@ android:background="@drawable/map_8f"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
 
-        <com.wifirecorder.CircleView
-            android:layout_width="52dp"
-            android:layout_height="355dp"
-            android:id="@+id/CirvleView"
-            android:layout_weight="1" />
+        <!--<com.wifirecorder.CircleView-->
+            <!--android:layout_width="52dp"-->
+            <!--android:layout_height="355dp"-->
+            <!--android:id="@+id/CirvleView"-->
+            <!--android:layout_weight="1" />-->
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show the distance"
-        android:id="@+id/btnretrieve2"
-        android:onClick="onClickShowDistance2"/>
+        android:text="Show distance"
+        android:id="@+id/btnretrieve"
+        android:onClick="onClickShowDistance"/>
+
+    <Button
+        android:id="@+id/btnshowcoordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickShowCoordinates"
+        android:text="Show my coordinates" />
 </RelativeLayout>
 

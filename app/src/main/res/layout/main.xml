@@ -56,41 +56,6 @@
 			<!--android:id="@+id/stopservice1"-->
 			<!--android:onClick="stopService" />-->
 	</LinearLayout>
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/button2"
-			android:text="Add Name"
-			android:onClick="onClickAddName"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText" />
-		<EditText
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/editText2"
-			android:hint="Name"
-			android:textColorHint="@android:color/holo_blue_light" />
-
-		<EditText
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/editText3"
-			android:hint="Grade"
-			android:textColorHint="@android:color/holo_blue_bright" />
-
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Retreive"
-			android:id="@+id/btnretrieve"
-			android:onClick="onClickRetrieveStudents"/>
-	</LinearLayout>
-
 	<TextView
 	    android:id="@+id/txtTime"
 	    android:layout_width="fill_parent"
