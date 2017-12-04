@@ -8,22 +8,23 @@ android:paddingTop="0dp"
 android:paddingBottom="0dp"
 android:background="@drawable/map_8f"
     >
-    <!--<LinearLayout-->
-        <!--android:layout_width="100sp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="right"-->
-        <!--android:orientation="horizontal">-->
-        <!--<Button-->
-            <!--android:id="@+id/btnExit"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/btnExit"-->
-            <!--android:textSize="20sp" />-->
-    <!--</LinearLayout>-->
-    <com.wifirecorder.CircleView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/circleView"
-        android:layout_weight="1"/>
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <com.wifirecorder.CircleView
+            android:layout_width="52dp"
+            android:layout_height="355dp"
+            android:id="@+id/CirvleView"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show the distance"
+        android:id="@+id/btnretrieve2"
+        android:onClick="onClickShowDistance2"/>
 </RelativeLayout>
 

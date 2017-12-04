@@ -6,7 +6,7 @@
     density="420dpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1512096216106"
+    timestamp="1512364019316"
     token="5327524513692384193"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -18,16 +18,13 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="43" />
+        duration="173" />
     <task
         name="verifier"
-        duration="39" />
+        duration="86" />
 
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -36,13 +33,13 @@
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
+        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
@@ -51,10 +48,13 @@
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
         location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/outputs/apk/debug/app-debug.apk"
@@ -62,13 +62,10 @@
 
     <build
         build-mode="FULL"
-        timestamp="1512096216106"
+        timestamp="1512364019316"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -77,13 +74,13 @@
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
@@ -92,10 +89,13 @@
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/outputs/apk/debug/app-debug.apk"

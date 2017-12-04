@@ -29,8 +29,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.wifirecorder.LocateMeActivity" />
+        <activity
+            android:name="com.wifirecorder.LocateMeActivity"
+            android:label="@string/locate_func" >
+        </activity>
 
+        <service android:name="com.wifirecorder.MyService" />
+
+        <provider
+            android:name="com.wifirecorder.StudentsProvider"
+            android:authorities="com.wifirecorder.StudentsProvider" />
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
             android:authorities="com.wifirecorder.com.android.tools.ir.server.InstantRunContentProvider"

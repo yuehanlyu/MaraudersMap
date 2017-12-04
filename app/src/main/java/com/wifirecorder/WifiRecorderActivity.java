@@ -13,13 +13,17 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,8 +49,10 @@ public class WifiRecorderActivity extends Activity
 	private String[] WifiInfo;
 	private String curTime;
 	private Vector<String> WifiSelectedItem = new Vector<String>();
+	String msg = "Android : ";
 
-	
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -73,7 +79,84 @@ public class WifiRecorderActivity extends Activity
 		listWifiResult.setOnItemClickListener(listListener);
 		listWifiResult.setOnItemLongClickListener(listLongListener);
 	}
-	
+
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.d(msg, "The onStart() event");
+	}
+
+	/** Called when the activity has become visible. */
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d(msg, "The onResume() event");
+	}
+
+	/** Called when another activity is taking focus. */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.d(msg, "The onPause() event");
+	}
+
+	/** Called when the activity is no longer visible. */
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.d(msg, "The onStop() event");
+	}
+
+	/** Called just before the activity is destroyed. */
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Log.d(msg, "The onDestroy() event");
+	}
+
+	//测试：启动服务
+	public void startService(View view){
+		startService(new Intent(getBaseContext(), MyService.class));
+	}
+
+	public void stopService(View view){
+		stopService(new Intent(getBaseContext(), MyService.class));
+	}
+
+	// 测试：数据库
+	public void onClickAddName(View view) {
+		// Add a new student record
+		ContentValues values = new ContentValues();
+		values.put(StudentsProvider.NAME,
+				((EditText)findViewById(R.id.editText2)).getText().toString());
+
+		values.put(StudentsProvider.GRADE,
+				((EditText)findViewById(R.id.editText3)).getText().toString());
+
+		Uri uri = getContentResolver().insert(
+				StudentsProvider.CONTENT_URI, values);
+
+		Toast.makeText(getBaseContext(),
+				uri.toString(), Toast.LENGTH_LONG).show();
+	}
+	public void onClickRetrieveStudents(View view) {
+		// Retrieve student records
+		String URL = "content://com.wifirecorder.StudentsProvider";
+
+		Uri students = Uri.parse(URL);
+		Cursor c = managedQuery(students, null, null, null, "name");
+
+		if (c.moveToFirst()) {
+			do{
+				Toast.makeText(this,
+						c.getString(c.getColumnIndex(StudentsProvider._ID)) +
+								", " +  c.getString(c.getColumnIndex( StudentsProvider.NAME)) +
+								", " + c.getString(c.getColumnIndex( StudentsProvider.GRADE)),
+						Toast.LENGTH_SHORT).show();
+			} while (c.moveToNext());
+		}
+	}
 	private Button.OnClickListener btnListener = new Button.OnClickListener()
 	{
 		@Override
@@ -184,17 +267,17 @@ public class WifiRecorderActivity extends Activity
 	private void DataFormer(String FileName)
 	{
 		String WifiDatas = curTime+"\r\n";
-		File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"WifiDatas");
-		//将Wifi资料存进WifDatas
+		//将Wifi信息存进WifDatas
+		File directory = new File(WifiRecorderActivity.this.getFilesDir()+File.separator+"WifiDatas");
 		for(int i=0;i<WifiSelectedItem.size();i++)
 			WifiDatas += WifiSelectedItem.elementAt(i).toString()+"\r\n";
-		//建立档案在SDCARD里
-		if(!directory.exists())//如果SD卡没此文件夹则建立
+		//建立本机储存目录
+		if(!directory.exists())//如果没此文件夹则建立
 			directory.mkdir();
 		try {
-			
-			FileWriter fw = new FileWriter(Environment.getExternalStorageDirectory().getPath()
-							+"/WifiData/"+FileName+".txt",false);
+			File gpxfile = new File(directory, FileName);
+			FileWriter fw = new FileWriter(gpxfile);
+			//FileWriter fw = new FileWriter(WifiRecorderActivity.this.getFilesDir()+"/WifiData/"+FileName+".txt",false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(WifiDatas);
 			Toast.makeText(WifiRecorderActivity.this

@@ -6,54 +6,49 @@
                 {
                     "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/values/strings.xml",
                     "from": {
-                        "startLines": "5,4,3,8,9,7,6,10",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "151,98,56,275,314,234,192,355",
-                        "endColumns": "40,52,41,38,40,40,41,38",
-                        "endOffsets": "187,146,93,309,350,270,229,389"
+                        "startLines": "12,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "4,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "439,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endColumns": "44,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endOffsets": "479,-1,-1,-1,-1,-1,-1,-1,-1,-1"
                     },
                     "to": {
-                        "startLines": "4,5,6,7,8,9,10,11",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "169,210,263,305,344,385,426,468",
-                        "endColumns": "40,52,41,38,40,40,41,38",
-                        "endOffsets": "205,258,300,339,380,421,463,502"
+                        "startLines": "2,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,214,255,308,350,389,430,471,513,558",
+                        "endColumns": "44,40,52,41,38,40,40,41,44,38",
+                        "endOffsets": "95,250,303,345,384,425,466,508,553,592"
                     }
                 },
                 {
                     "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "6,15",
-                        "startColumns": "4,4",
-                        "startOffsets": "186,510",
-                        "endLines": "12,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "472,665"
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
                     },
                     "to": {
-                        "startLines": "12,19",
+                        "startLines": "14,17",
                         "startColumns": "4,4",
-                        "startOffsets": "507,798",
-                        "endLines": "18,21",
+                        "startOffsets": "597,680",
+                        "endLines": "16,19",
                         "endColumns": "12,12",
-                        "endOffsets": "793,953"
+                        "endOffsets": "675,747"
                     }
                 },
                 {
                     "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/values/dimens.xml",
                     "from": {
-                        "startLines": "3,4",
-                        "startColumns": "4,4",
-                        "startOffsets": "89,147",
-                        "endColumns": "57,55",
-                        "endOffsets": "142,198"
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
                     },
                     "to": {
-                        "startLines": "2,3",
+                        "startLines": "3,4",
                         "startColumns": "4,4",
-                        "startOffsets": "55,113",
+                        "startOffsets": "100,158",
                         "endColumns": "57,55",
-                        "endOffsets": "108,164"
+                        "endOffsets": "153,209"
                     }
                 }
             ]
