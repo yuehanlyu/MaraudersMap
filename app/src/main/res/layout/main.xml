@@ -42,19 +42,6 @@
 			android:layout_height="wrap_content"
 			android:text="@string/btnExit"
 			android:textSize="20sp" />
-		<!--<Button-->
-			<!--android:layout_width="wrap_content"-->
-			<!--android:layout_height="wrap_content"-->
-			<!--android:id="@+id/startservice1"-->
-			<!--android:text="Start Services"-->
-			<!--android:onClick="startService" />-->
-
-		<!--<Button-->
-			<!--android:layout_width="wrap_content"-->
-			<!--android:layout_height="wrap_content"-->
-			<!--android:text="Stop Services"-->
-			<!--android:id="@+id/stopservice1"-->
-			<!--android:onClick="stopService" />-->
 	</LinearLayout>
 	<TextView
 	    android:id="@+id/txtTime"

@@ -35,10 +35,6 @@
         </activity>
 
         <service android:name="com.wifirecorder.MyService" />
-
-        <provider
-            android:name="com.wifirecorder.StudentsProvider"
-            android:authorities="com.wifirecorder.StudentsProvider" />
     </application>
 
 </manifest>

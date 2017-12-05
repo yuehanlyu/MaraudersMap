@@ -24,11 +24,11 @@ public final class R {
     public static final int action_settings=0x7f040000;
     public static final int btnExit=0x7f040001;
     public static final int btnLocate=0x7f040002;
-    public static final int btnRecord=0x7f040003;
-    public static final int btnRefresh=0x7f040004;
-    public static final int btnretrieve=0x7f040005;
-    public static final int btnshowcoordinates=0x7f040006;
-    public static final int linearLayout=0x7f040007;
+    public static final int btnReadcsv=0x7f040003;
+    public static final int btnRecord=0x7f040004;
+    public static final int btnRefresh=0x7f040005;
+    public static final int btnretrieve=0x7f040006;
+    public static final int btnshowcoordinates=0x7f040007;
     public static final int listResult=0x7f040008;
     public static final int txtTime=0x7f040009;
   }

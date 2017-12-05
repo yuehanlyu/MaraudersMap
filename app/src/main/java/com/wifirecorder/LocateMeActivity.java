@@ -10,9 +10,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class LocateMeActivity extends Activity {
 
@@ -30,7 +39,24 @@ public class LocateMeActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.officemap);  //使用有办公区背景图的layout
-        //todo: 计算坐标， 直接显示位置
+        //todo: 读入ap_mac.csv
+
+
+    }
+
+    public void onClickReadCSV(View view){
+        InputStream inputStream = getResources().openRawResource(R.raw.ap_mac);
+        CSVFile csvFile = new CSVFile(inputStream);
+        Map apmacMap =csvFile.readasMap(); // hashmap - 类似python的字典：匹配AP的mac地址和坐标
+
+        Iterator it = apmacMap.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            Toast.makeText(this,
+                    pair.getKey() + " = " + pair.getValue().toString(),
+                    Toast.LENGTH_SHORT).show();
+            it.remove(); // avoids a ConcurrentModificationException
+        }
 
     }
 
@@ -47,7 +73,6 @@ public class LocateMeActivity extends Activity {
 //            Log.d("Files", "FileName:" + files[i].getName());
 //        }
 //
-
         //Read text from file
         StringBuilder text = new StringBuilder();
         //Get the text file
@@ -59,16 +84,16 @@ public class LocateMeActivity extends Activity {
             String line;
 
             while ((line = br.readLine()) != null) {
-                text.append(line);
-                text.append('\n');
+                String[] splited = line.split("\\s+");
+//                text.append(line);
+//                text.append('\n');
+                Toast.makeText(this,
+                        splited[0]+splited[1],
+                        Toast.LENGTH_SHORT).show();
             }
             br.close();
-            Toast.makeText(this,
-                    text,
-                    Toast.LENGTH_SHORT).show();
         }
         catch (IOException e) {
-            //You'll need to add proper error handling here
             e.printStackTrace();
         }
 

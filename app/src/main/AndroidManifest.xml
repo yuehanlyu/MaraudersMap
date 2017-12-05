@@ -29,9 +29,6 @@
                 android:label="@string/locate_func">
         </activity>
         <service android:name=".MyService" />
-        <provider
-            android:authorities="com.wifirecorder.StudentsProvider"
-            android:name="StudentsProvider"/>
     </application>
 
 </manifest>

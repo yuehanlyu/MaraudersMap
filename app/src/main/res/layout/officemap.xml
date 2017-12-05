@@ -8,34 +8,30 @@ android:paddingTop="0dp"
 android:paddingBottom="0dp"
 android:background="@drawable/map_8f"
     >
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout">
-
-        <!--<com.wifirecorder.CircleView-->
-            <!--android:layout_width="52dp"-->
-            <!--android:layout_height="355dp"-->
-            <!--android:id="@+id/CirvleView"-->
-            <!--android:layout_weight="1" />-->
-    </LinearLayout>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Read CSV"
+        android:id="@+id/btnReadcsv"
+        android:onClick="onClickReadCSV"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnReadcsv"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/btnshowcoordinates"
         android:text="Show distance"
         android:id="@+id/btnretrieve"
         android:onClick="onClickShowDistance"/>
 
     <Button
         android:id="@+id/btnshowcoordinates"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/btnReadcsv"
+        android:layout_alignParentRight="true"
         android:onClick="onClickShowCoordinates"
         android:text="Show my coordinates" />
+
 </RelativeLayout>
 
