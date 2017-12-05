@@ -141,27 +141,6 @@ public class WifiRecorderActivity extends Activity
 		}
 	};
 
-
-//	private ListView.OnItemClickListener listListener = new ListView.OnItemClickListener()
-//	{
-//		int ItemSelectedInVector;
-//		@Override
-//		public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//			//如果被勾选就加入Vector
-//			if(listWifiResult.isItemChecked(position))
-//				WifiSelectedItem.add(WifiInfo[position]);
-//			//如果被取消勾选就从Vector移除
-//			else
-//			{
-//				//取得目前勾选项目在Vector中的位置
-//				for(int i=0;i<WifiSelectedItem.size();i++)
-//					if(WifiSelectedItem.get(i).equals(WifiInfo[position]))
-//						ItemSelectedInVector = i;
-//				WifiSelectedItem.remove(ItemSelectedInVector);
-//			}
-//		}
-//
-//	};
 	private ListView.OnItemLongClickListener listLongListener = new ListView.OnItemLongClickListener()
 	{
 
@@ -275,9 +254,15 @@ public class WifiRecorderActivity extends Activity
 			mWifiMngr.setWifiEnabled(false);
 	}
 
+	public double getRealLen(double rssi) {
+		double f=(-rssi-35)/24.0;
+		return Math.pow(10,f);
+	}
+
 	public double getPicLen(double rssi) {
-        double f=(-rssi-50)/20.0;
-        return Math.pow(10,f);
+        double f=(-rssi-35)/24.0;
+        double dist =  Math.pow(10,f);
+        return dist*30;
     }
 
 	private void GetWifiList()
@@ -310,7 +295,7 @@ public class WifiRecorderActivity extends Activity
 		for(int i=0;i<WifiList.size();i++) {
             //todo: 计算距离
             //dist = String.valueOf(getPicLen(WifiList.get(i).level));
-            dist = String.valueOf(Math.floor(getPicLen(WifiList.get(i).level) * 100) / 100);
+            dist = String.valueOf(Math.floor(getRealLen(WifiList.get(i).level) * 100) / 100);
             Wifis[i] = WifiList.get(i).SSID  //SSID
                     + "\r\r" + WifiList.get(i).BSSID + "\r\r"//MAC地址
                     + WifiList.get(i).level + "dBm" + "\r\r"//信号强弱、
@@ -340,10 +325,6 @@ public class WifiRecorderActivity extends Activity
 		WifiInfo = new String[WifiList.size()];
 		String dist;
 		for(int i=0;i<WifiList.size();i++) {
-//			WifiInfo[i] = "SSID:"+WifiList.get(i).SSID +"\r\n"      //SSID
-//						+"BSSID:"+WifiList.get(i).BSSID+"\r\n"   //BSSID
-//						+"RSSI："+WifiList.get(i).level+"dBm"+"\r\n" //信号强弱
-//						+"Frequency:"+WifiList.get(i).frequency+"MHz"+"\r\n"; //信道频率
 			dist = String.valueOf(Math.floor(getPicLen(WifiList.get(i).level) * 100) / 100);
 			WifiInfo[i] = WifiList.get(i).BSSID + "  " + dist;
 		}
