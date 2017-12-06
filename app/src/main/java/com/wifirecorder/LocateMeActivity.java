@@ -5,9 +5,16 @@ package com.wifirecorder;
  */
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -20,16 +27,45 @@ import java.util.Map;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 
-public class LocateMeActivity extends Activity {
+public class LocateMeActivity extends Activity{
 
     /**
      * Called when the activity is first created.
      */
+    private double f_x;
+    private double f_y;
+    //private CustomView customView;
+    private Button btnDrawCircles;
+    private Button btnshowcoordinates;
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.officemap);  //使用有办公区背景图的layout
+
+        //取得界面资源
+        btnDrawCircles = (Button)findViewById(R.id.btnDrawCircles);
+        btnshowcoordinates = (Button)findViewById(R.id.btnshowcoordinates);
+        //设定按钮功能
+        btnDrawCircles.setOnClickListener(btnListener);
+        btnshowcoordinates.setOnClickListener(btnListener);
+
+        //customView = (CustomView)findViewById(R.id.custom_view);
+
     }
+
+    public Button.OnClickListener btnListener = new Button.OnClickListener(){
+        public void onClick(View v) {
+            switch(v.getId())
+            {
+                case R.id.btnDrawCircles:
+                    onClickDrawCircles(v);
+                    break;
+                case R.id.btnshowcoordinates:  //计算坐标
+                    onClickShowCoordinates(v);
+            }
+        }
+    };
 
     public void onClickReadCSV(View view){
         InputStream inputStream = getResources().openRawResource(R.raw.ap_mac);
@@ -44,7 +80,6 @@ public class LocateMeActivity extends Activity {
                     Toast.LENGTH_SHORT).show();
             it.remove(); // avoids a ConcurrentModificationException
         }
-
     }
 
     public void onClickShowDistance(View view){
@@ -72,8 +107,6 @@ public class LocateMeActivity extends Activity {
 
             while ((line = br.readLine()) != null) {
                 String[] splited = line.split("\\s+");
-//                text.append(line);
-//                text.append('\n');
                 Toast.makeText(this,
                         splited[0]+splited[1],
                         Toast.LENGTH_SHORT).show();
@@ -85,14 +118,17 @@ public class LocateMeActivity extends Activity {
         }
 
     }
-    //todo：读入rssidata [done] txt文本逐行读入
-    //todo: 读入ap_mac.csv [done] hashmap格式
-    //todo:
+
+    public void onClickDrawCircles(View view){
+        //customView = (CustomView)findViewById(R.id.custom_view);
+
+        //暂时给f_x, f_y赋值测试画圈；实际应该用底下onClickShowCoordinates的结果
+//        f_x = 200.2;
+//        f_y = 500.3;
+//        customView.drawCircle(((int) f_x),(int)f_y);
+    }
+
     public void onClickShowCoordinates(View view){
-//        Toast.makeText(this,
-//                "the coordinates",
-//                Toast.LENGTH_SHORT).show();
-        //以上测试按钮功能用
 
         //读入的mac地址和对应的像素坐标
         InputStream inputStream = getResources().openRawResource(R.raw.ap_mac);
@@ -110,7 +146,7 @@ public class LocateMeActivity extends Activity {
             BufferedReader br = new BufferedReader(fr);
             String line;
 
-            while ((line = br.readLine()) != null) { //rssidata,
+            while ((line = br.readLine()) != null) { //解析rssidata,
                 String[] splited = line.split("\\s+");
                 //splited[0]: MAC地址  splited[1]：距离
                 if(apmacMap.containsKey(splited[0])){
@@ -135,10 +171,13 @@ public class LocateMeActivity extends Activity {
         }
         SimpleRegression reg=new SimpleRegression(true);  //least square
         reg.addData(pq);
-        double f_x =  reg.getIntercept();
-        double f_y = -reg.getSlope();
-        String str = "sss";
+        f_x =  reg.getIntercept();
+        f_y = -reg.getSlope();
+        String str = "sss";//just a pause point
 
+        Toast.makeText(this,
+                String.valueOf(f_x)+" "+String.valueOf(f_y),
+                Toast.LENGTH_SHORT).show();
 
 
 

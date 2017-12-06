@@ -80,41 +80,6 @@ public class WifiRecorderActivity extends Activity
 		listWifiResult.setOnItemLongClickListener(listLongListener);
 	}
 
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-		Log.d(msg, "The onStart() event");
-	}
-
-	/** Called when the activity has become visible. */
-	@Override
-	protected void onResume() {
-		super.onResume();
-		Log.d(msg, "The onResume() event");
-	}
-
-	/** Called when another activity is taking focus. */
-	@Override
-	protected void onPause() {
-		super.onPause();
-		Log.d(msg, "The onPause() event");
-	}
-
-	/** Called when the activity is no longer visible. */
-	@Override
-	protected void onStop() {
-		super.onStop();
-		Log.d(msg, "The onStop() event");
-	}
-
-	/** Called just before the activity is destroyed. */
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Log.d(msg, "The onDestroy() event");
-	}
-
 	private Button.OnClickListener btnListener = new Button.OnClickListener()
 	{
 		@Override
@@ -201,6 +166,7 @@ public class WifiRecorderActivity extends Activity
 		})
 		.show();
 	}
+
 	private void DataFormer(String FileName)
 	{
 
@@ -224,7 +190,7 @@ public class WifiRecorderActivity extends Activity
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(WifiDatas);
 			Toast.makeText(WifiRecorderActivity.this
-							,FileName+"is successfully saved",Toast.LENGTH_LONG).show();
+							,FileName+" is successfully saved",Toast.LENGTH_LONG).show();
 			bw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -271,6 +237,7 @@ public class WifiRecorderActivity extends Activity
 		mWifiMngr.startScan();
 		//得到扫描结果
 		WifiList = mWifiMngr.getScanResults();
+
         //将WifiList根据信号强度由强到弱排序
         Comparator<ScanResult> comparator = new Comparator<ScanResult>() {
             @Override
@@ -279,6 +246,15 @@ public class WifiRecorderActivity extends Activity
             }
         };
         Collections.sort(WifiList, comparator);
+
+        //移除rssi小于-70的信号
+		//移除所有2.4GHz
+		for (int i =WifiList.size()-1;i>=0;i--){
+			if(WifiList.get(i).level<-70||WifiList.get(i).frequency<5000)
+				WifiList.remove(i);
+//			else
+//				break;
+		}
         //设定wifi打印阵列
 		String[] Wifis = new String[WifiList.size()];
 		//取得目前时间
@@ -294,13 +270,12 @@ public class WifiRecorderActivity extends Activity
 		//将Wifi信息放入main.xml打印阵列中     Wifis是一个string矩阵
 		for(int i=0;i<WifiList.size();i++) {
             //todo: 计算距离
-            //dist = String.valueOf(getPicLen(WifiList.get(i).level));
-            dist = String.valueOf(Math.floor(getRealLen(WifiList.get(i).level) * 100) / 100);
-            Wifis[i] = WifiList.get(i).SSID  //SSID
-                    + "\r\r" + WifiList.get(i).BSSID + "\r\r"//MAC地址
-                    + WifiList.get(i).level + "dBm" + "\r\r"//信号强弱、
-                    + dist+"m\r\r"+ //距离
-            + WifiList.get(i).frequency; //信道
+			dist = String.valueOf(Math.floor(getRealLen(WifiList.get(i).level) * 100) / 100);
+			Wifis[i] = WifiList.get(i).SSID  //SSID
+					+ "\r\r" + WifiList.get(i).BSSID + "\r\r"//MAC地址
+					+ WifiList.get(i).level + "dBm" + "\r\r"//信号强弱、
+					+ dist+"m\r\r"+ //距离
+					+ WifiList.get(i).frequency; //信道
         }
         //将WifiSelectedItem中暂存的资料清空
 		WifiSelectedItem.removeAllElements();
@@ -328,6 +303,7 @@ public class WifiRecorderActivity extends Activity
 			dist = String.valueOf(Math.floor(getPicLen(WifiList.get(i).level) * 100) / 100);
 			WifiInfo[i] = WifiList.get(i).BSSID + "  " + dist;
 		}
+		String str ="test";
 	}
 	
 
