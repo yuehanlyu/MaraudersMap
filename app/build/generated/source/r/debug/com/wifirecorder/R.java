@@ -28,8 +28,9 @@ public final class R {
     public static final int btnRecord=0x7f040004;
     public static final int btnRefresh=0x7f040005;
     public static final int btnshowcoordinates=0x7f040006;
-    public static final int listResult=0x7f040007;
-    public static final int txtTime=0x7f040008;
+    public static final int custom_view=0x7f040007;
+    public static final int listResult=0x7f040008;
+    public static final int txtTime=0x7f040009;
   }
   public static final class layout {
     public static final int main=0x7f050000;

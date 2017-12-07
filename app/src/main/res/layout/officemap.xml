@@ -29,11 +29,11 @@ android:background="@drawable/map_8f"
         android:layout_alignParentRight="true"
         android:text="Show my coordinates" />
 
-    <!--<com.wifirecorder.CustomView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/custom_view"-->
-        <!--android:background="@null"/>-->
+    <com.wifirecorder.CustomView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_view"
+        android:background="@null"/>
 
 </RelativeLayout>
 

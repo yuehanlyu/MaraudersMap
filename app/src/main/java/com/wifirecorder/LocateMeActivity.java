@@ -34,7 +34,7 @@ public class LocateMeActivity extends Activity{
      */
     private double f_x;
     private double f_y;
-    //private CustomView customView;
+    private CustomView customView;
     private Button btnDrawCircles;
     private Button btnshowcoordinates;
 
@@ -50,7 +50,7 @@ public class LocateMeActivity extends Activity{
         btnDrawCircles.setOnClickListener(btnListener);
         btnshowcoordinates.setOnClickListener(btnListener);
 
-        //customView = (CustomView)findViewById(R.id.custom_view);
+        customView = (CustomView)findViewById(R.id.custom_view);
 
     }
 
@@ -123,9 +123,10 @@ public class LocateMeActivity extends Activity{
         //customView = (CustomView)findViewById(R.id.custom_view);
 
         //暂时给f_x, f_y赋值测试画圈；实际应该用底下onClickShowCoordinates的结果
-//        f_x = 200.2;
-//        f_y = 500.3;
-//        customView.drawCircle(((int) f_x),(int)f_y);
+        f_x = 200.2;
+        f_y = 500.3;
+        String str1 = "test1";
+        customView.drawCircle(((int) f_x),(int)f_y);
     }
 
     public void onClickShowCoordinates(View view){

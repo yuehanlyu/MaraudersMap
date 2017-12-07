@@ -1,4 +1,4 @@
-#Wed Dec 06 18:35:32 CST 2017
+#Thu Dec 07 14:06:31 CST 2017
 base.0=/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/transforms/dexMerger/debug/95
 path.0=classes.dex
 renamed.0=classes.dex
