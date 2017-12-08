@@ -5,12 +5,6 @@ package com.wifirecorder;
  */
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -177,7 +171,7 @@ public class LocateMeActivity extends Activity{
         String str = "sss";//just a pause point
 
         Toast.makeText(this,
-                String.valueOf(f_x)+" "+String.valueOf(f_y),
+                String.valueOf((int)f_x)+", "+String.valueOf((int)f_y),
                 Toast.LENGTH_SHORT).show();
 
 

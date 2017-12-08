@@ -41,6 +41,7 @@ public class WifiRecorderActivity extends Activity
 	private Button btnRecord;
 	private Button btnExit;
 	private Button btnLocate;
+	private Button btnDrawtest;
 	private TextView txtTime;
 	private Calendar time;
 	private ListView listWifiResult;
@@ -61,6 +62,7 @@ public class WifiRecorderActivity extends Activity
 		btnRefresh = (Button)findViewById(R.id.btnRefresh);
 		btnRecord = (Button)findViewById(R.id.btnRecord);
 		btnExit = (Button)findViewById(R.id.btnExit);
+		btnDrawtest = (Button)findViewById(R.id.btnDrawtest);
 		btnLocate = (Button)findViewById(R.id.btnLocate);
 		txtTime = (TextView)findViewById(R.id.txtTime);
 		listWifiResult = (ListView)findViewById(R.id.listResult);
@@ -74,6 +76,7 @@ public class WifiRecorderActivity extends Activity
 		btnRefresh.setOnClickListener(btnListener);
 		btnRecord.setOnClickListener(btnListener);
 		btnExit.setOnClickListener(btnListener);
+		btnDrawtest.setOnClickListener(btnListener);
 		btnLocate.setOnClickListener(btnListener);
 		//设定ListView选取事件
 		//listWifiResult.setOnItemClickListener(listListener);
@@ -100,8 +103,12 @@ public class WifiRecorderActivity extends Activity
 					finish();
 					break;
                 case R.id.btnLocate:   //定位
-                    Intent myIntent = new Intent(v.getContext(), LocateMeActivity.class);
-                    startActivityForResult(myIntent, 0);
+                    Intent locateIntent = new Intent(v.getContext(), LocateMeActivity.class);
+                    startActivityForResult(locateIntent, 0);
+                    break;
+				case R.id.btnDrawtest: //测试画图
+					Intent drawtestIntent = new Intent(v.getContext(), DrawtestActivity.class);
+					startActivityForResult(drawtestIntent,0);
 			}
 		}
 	};
@@ -247,10 +254,10 @@ public class WifiRecorderActivity extends Activity
         };
         Collections.sort(WifiList, comparator);
 
-        //移除rssi小于-70的信号
+        //移除rssi小于-65的信号
 		//移除所有2.4GHz
 		for (int i =WifiList.size()-1;i>=0;i--){
-			if(WifiList.get(i).level<-70||WifiList.get(i).frequency<5000)
+			if(WifiList.get(i).level<-65||WifiList.get(i).frequency<5000)
 				WifiList.remove(i);
 //			else
 //				break;

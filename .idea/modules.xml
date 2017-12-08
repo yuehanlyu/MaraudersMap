@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MaraudersMap.iml" filepath="$PROJECT_DIR$/MaraudersMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencsv/opencsv.iml" filepath="$PROJECT_DIR$/opencsv/opencsv.iml" />
       <module fileurl="file://$PROJECT_DIR$/opencsv/opencsv-4.1.iml" filepath="$PROJECT_DIR$/opencsv/opencsv-4.1.iml" />
     </modules>
   </component>

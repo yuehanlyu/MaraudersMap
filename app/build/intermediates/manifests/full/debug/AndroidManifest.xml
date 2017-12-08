@@ -33,8 +33,9 @@
             android:name="com.wifirecorder.LocateMeActivity"
             android:label="@string/locate_func" >
         </activity>
-
-        <service android:name="com.wifirecorder.MyService" />
+        <activity
+            android:name="com.wifirecorder.DrawtestActivity"
+            android:label="画图测试" />
     </application>
 
 </manifest>

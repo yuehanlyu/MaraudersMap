@@ -8,6 +8,7 @@
     <string name="btnRefresh">刷新</string>
     <string name="btnRecord">储存</string>
     <string name="btnExit">退出</string>
+    <string name="btnDrawtest">画图测试</string>
     <string name="btnLocate">定位</string>
     <string name="time">Time:</string>
     <color name="lightgreen">#0fbf79</color>

@@ -19,22 +19,27 @@ public final class R {
     public static final int ic_launcher=0x7f030000;
     public static final int map_8f=0x7f030001;
     public static final int qiandaijun=0x7f030002;
+    public static final int red_circle=0x7f030003;
   }
   public static final class id {
     public static final int action_settings=0x7f040000;
-    public static final int btnDrawCircles=0x7f040001;
-    public static final int btnExit=0x7f040002;
-    public static final int btnLocate=0x7f040003;
-    public static final int btnRecord=0x7f040004;
-    public static final int btnRefresh=0x7f040005;
-    public static final int btnshowcoordinates=0x7f040006;
-    public static final int custom_view=0x7f040007;
-    public static final int listResult=0x7f040008;
-    public static final int txtTime=0x7f040009;
+    public static final int bg=0x7f040001;
+    public static final int btnDrawCircles=0x7f040002;
+    public static final int btnDrawPoint=0x7f040003;
+    public static final int btnDrawtest=0x7f040004;
+    public static final int btnExit=0x7f040005;
+    public static final int btnLocate=0x7f040006;
+    public static final int btnRecord=0x7f040007;
+    public static final int btnRefresh=0x7f040008;
+    public static final int btnshowcoordinates=0x7f040009;
+    public static final int custom_view=0x7f04000a;
+    public static final int listResult=0x7f04000b;
+    public static final int txtTime=0x7f04000c;
   }
   public static final class layout {
     public static final int main=0x7f050000;
-    public static final int officemap=0x7f050001;
+    public static final int myframelayout=0x7f050001;
+    public static final int officemap=0x7f050002;
   }
   public static final class menu {
     public static final int wifi_recorder=0x7f060000;
@@ -47,12 +52,13 @@ public final class R {
     public static final int Record=0x7f080000;
     public static final int action_settings=0x7f080001;
     public static final int app_name=0x7f080002;
-    public static final int btnExit=0x7f080003;
-    public static final int btnLocate=0x7f080004;
-    public static final int btnRecord=0x7f080005;
-    public static final int btnRefresh=0x7f080006;
-    public static final int locate_func=0x7f080007;
-    public static final int time=0x7f080008;
+    public static final int btnDrawtest=0x7f080003;
+    public static final int btnExit=0x7f080004;
+    public static final int btnLocate=0x7f080005;
+    public static final int btnRecord=0x7f080006;
+    public static final int btnRefresh=0x7f080007;
+    public static final int locate_func=0x7f080008;
+    public static final int time=0x7f080009;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f090000;

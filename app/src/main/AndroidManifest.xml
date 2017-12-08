@@ -28,7 +28,8 @@
         <activity android:name=".LocateMeActivity"
                 android:label="@string/locate_func">
         </activity>
-        <service android:name=".MyService" />
+        <activity android:name=".DrawtestActivity"
+            android:label="画图测试"></activity>
     </application>
 
 </manifest>
