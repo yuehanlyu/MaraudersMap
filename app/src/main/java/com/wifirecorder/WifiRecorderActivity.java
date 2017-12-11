@@ -37,9 +37,9 @@ import android.widget.Toast;
 
 public class WifiRecorderActivity extends Activity 
 {
-	//RSSI to Distance parameters
-	private static double coef = 23.5;
-	private static double A0 = -35;
+	//参数设置
+	private static double coef = 22;
+	private static double A0 = -43;
 
 	private Button btnRefresh;
 //	private Button btnRecord;
