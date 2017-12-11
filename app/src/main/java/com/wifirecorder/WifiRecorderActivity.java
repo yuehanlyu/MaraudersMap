@@ -237,7 +237,8 @@ public class WifiRecorderActivity extends Activity
 	private void GetWifiList()
 	{
 		int nAP=3;
-
+		Toast.makeText(WifiRecorderActivity.this
+				,"正在扫描...",Toast.LENGTH_LONG).show();
 		while(nAP<5){
 			//开始扫描Wifi热点
 			mWifiMngr.startScan();
@@ -262,11 +263,9 @@ public class WifiRecorderActivity extends Activity
 //				break;
 			}
 			nAP=WifiList.size();
-			Toast.makeText(WifiRecorderActivity.this
-					,"正在扫描...接收到"+String.valueOf(nAP)+"个AP的信号",Toast.LENGTH_LONG).show();
 		}
 		Toast.makeText(WifiRecorderActivity.this
-				,"可以定位",Toast.LENGTH_LONG).show();
+				,"接收到"+String.valueOf(nAP)+"个AP的信号，"+"可以定位",Toast.LENGTH_LONG).show();
 
 
         //设定wifi打印阵列
