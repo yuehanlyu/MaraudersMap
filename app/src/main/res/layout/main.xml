@@ -23,12 +23,12 @@
 			android:text="@string/btnRefresh"
 			android:textSize="20sp" />
 
-		<Button
-			android:id="@+id/btnRecord"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/btnRecord"
-			android:textSize="20sp" />
+		<!--<Button-->
+			<!--android:id="@+id/btnRecord"-->
+			<!--android:layout_width="wrap_content"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:text="@string/btnRecord"-->
+			<!--android:textSize="20sp" />-->
 		<Button
 			android:id="@+id/btnLocate"
 			android:layout_width="wrap_content"
@@ -42,12 +42,12 @@
 			android:layout_height="wrap_content"
 			android:text="@string/btnExit"
 			android:textSize="20sp" />
-		<Button
-			android:id="@+id/btnDrawtest"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/btnDrawtest"
-			android:textSize="20sp" />
+		<!--<Button-->
+			<!--android:id="@+id/btnDrawtest"-->
+			<!--android:layout_width="wrap_content"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:text="@string/btnDrawtest"-->
+			<!--android:textSize="20sp" />-->
 	</LinearLayout>
 	<TextView
 	    android:id="@+id/txtTime"

@@ -52,10 +52,6 @@
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-hdpi/qiandaijun.png"
     },
     {
-        "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/layout_officemap.xml.flat",
-        "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/layout/officemap.xml"
-    },
-    {
         "merged": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/build/intermediates/res/merged/debug/drawable-xxhdpi_qiandaijun.png.flat",
         "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/drawable-xxhdpi/qiandaijun.png"
     },

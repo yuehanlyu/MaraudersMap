@@ -7,10 +7,17 @@
         android:layout_height="match_parent"
         android:background="@drawable/map_8f"/>
     <Button
+        android:id="@+id/btnshowcoordinates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_alignParentRight="true"
+        android:text="显示位置" />
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="定位"
-        android:id="@+id/btnDrawPoint"/>
+        android:id="@+id/btnDrawCircles"/>
 
     <!--<ImageView-->
         <!--android:layout_width="wrap_content"-->

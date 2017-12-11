@@ -38,10 +38,9 @@ import android.widget.Toast;
 public class WifiRecorderActivity extends Activity 
 {
 	private Button btnRefresh;
-	private Button btnRecord;
+//	private Button btnRecord;
 	private Button btnExit;
 	private Button btnLocate;
-	private Button btnDrawtest;
 	private TextView txtTime;
 	private Calendar time;
 	private ListView listWifiResult;
@@ -60,9 +59,8 @@ public class WifiRecorderActivity extends Activity
 		setContentView(R.layout.main);
 		//取得界面资源
 		btnRefresh = (Button)findViewById(R.id.btnRefresh);
-		btnRecord = (Button)findViewById(R.id.btnRecord);
+//		btnRecord = (Button)findViewById(R.id.btnRecord);
 		btnExit = (Button)findViewById(R.id.btnExit);
-		btnDrawtest = (Button)findViewById(R.id.btnDrawtest);
 		btnLocate = (Button)findViewById(R.id.btnLocate);
 		txtTime = (TextView)findViewById(R.id.txtTime);
 		listWifiResult = (ListView)findViewById(R.id.listResult);
@@ -74,12 +72,10 @@ public class WifiRecorderActivity extends Activity
 		GetWifiList();
 		//设定按钮功能
 		btnRefresh.setOnClickListener(btnListener);
-		btnRecord.setOnClickListener(btnListener);
+//		btnRecord.setOnClickListener(btnListener);
 		btnExit.setOnClickListener(btnListener);
-		btnDrawtest.setOnClickListener(btnListener);
 		btnLocate.setOnClickListener(btnListener);
 		//设定ListView选取事件
-		//listWifiResult.setOnItemClickListener(listListener);
 		listWifiResult.setOnItemLongClickListener(listLongListener);
 	}
 
@@ -94,10 +90,10 @@ public class WifiRecorderActivity extends Activity
 					//取得Wifi列表
 					GetWifiList();
 					break;
-				case R.id.btnRecord:
-					//RecordCheckWindow();   //手动输入文件名
-					AutoSaveData();   //自动保存为rssidata.txt
-					break;
+//				case R.id.btnRecord:
+//					//RecordCheckWindow();   //手动输入文件名
+//					AutoSaveData();   //自动保存为rssidata.txt
+//					break;
 				case R.id.btnExit:   //退出
 					CloseWifi();
 					finish();
@@ -105,10 +101,6 @@ public class WifiRecorderActivity extends Activity
                 case R.id.btnLocate:   //定位
                     Intent locateIntent = new Intent(v.getContext(), LocateMeActivity.class);
                     startActivityForResult(locateIntent, 0);
-                    break;
-				case R.id.btnDrawtest: //测试画图
-					Intent drawtestIntent = new Intent(v.getContext(), DrawtestActivity.class);
-					startActivityForResult(drawtestIntent,0);
 			}
 		}
 	};
@@ -196,8 +188,8 @@ public class WifiRecorderActivity extends Activity
 			//FileWriter fw = new FileWriter(WifiRecorderActivity.this.getFilesDir()+"/WifiData/"+FileName+".txt",false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(WifiDatas);
-			Toast.makeText(WifiRecorderActivity.this
-							,FileName+" is successfully saved",Toast.LENGTH_LONG).show();
+//			Toast.makeText(WifiRecorderActivity.this
+//							,FileName+" is successfully saved",Toast.LENGTH_LONG).show();
 			bw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -240,28 +232,39 @@ public class WifiRecorderActivity extends Activity
 
 	private void GetWifiList()
 	{
-		//开始扫描Wifi热点
-		mWifiMngr.startScan();
-		//得到扫描结果
-		WifiList = mWifiMngr.getScanResults();
+		int nAP=3;
 
-        //将WifiList根据信号强度由强到弱排序
-        Comparator<ScanResult> comparator = new Comparator<ScanResult>() {
-            @Override
-            public int compare(ScanResult lhs, ScanResult rhs) {
-                return (lhs.level >rhs.level ? -1 : (lhs.level==rhs.level ? 0 : 1));
-            }
-        };
-        Collections.sort(WifiList, comparator);
+		while(nAP<5){
+			Toast.makeText(WifiRecorderActivity.this
+					,"正在扫描...",Toast.LENGTH_LONG).show();
+			//开始扫描Wifi热点
+			mWifiMngr.startScan();
+			//得到扫描结果
+			WifiList = mWifiMngr.getScanResults();
 
-        //移除rssi小于-65的信号
-		//移除所有2.4GHz
-		for (int i =WifiList.size()-1;i>=0;i--){
-			if(WifiList.get(i).level<-65||WifiList.get(i).frequency<5000)
-				WifiList.remove(i);
+			//将WifiList根据信号强度由强到弱排序
+			Comparator<ScanResult> comparator = new Comparator<ScanResult>() {
+				@Override
+				public int compare(ScanResult lhs, ScanResult rhs) {
+					return (lhs.level >rhs.level ? -1 : (lhs.level==rhs.level ? 0 : 1));
+				}
+			};
+			Collections.sort(WifiList, comparator);
+
+			//移除rssi小于-65的信号
+			//移除所有2.4GHz
+			for (int i =WifiList.size()-1;i>=0;i--){
+				if(WifiList.get(i).level<-65||WifiList.get(i).frequency<5000)
+					WifiList.remove(i);
 //			else
 //				break;
+			}
+			nAP=WifiList.size();
 		}
+		Toast.makeText(WifiRecorderActivity.this
+				,"可以定位",Toast.LENGTH_LONG).show();
+
+
         //设定wifi打印阵列
 		String[] Wifis = new String[WifiList.size()];
 		//取得目前时间
@@ -288,16 +291,17 @@ public class WifiRecorderActivity extends Activity
 		WifiSelectedItem.removeAllElements();
 		//设定地图页面的Wifi清单
 		SetWifiList(Wifis);
+		//直接储存
+		DataFormer("rssidata");
 	}
 
-	private void SetWifiList(String[] Wifis)  //WifiInfo将打印在地图页面 officemap.xml
+	private void SetWifiList(String[] Wifis)
 	{
 	    //建立ArrayAdapter
 		 ArrayAdapter<String> adapterWifis = new ArrayAdapter<String>(WifiRecorderActivity.this
 						,android.R.layout.simple_list_item_checked,Wifis);
         //设定ListView为多选
 		listWifiResult.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-		//listWifiResult.setItemChecked(1,true);
 
 		//设定ListView来源
 		listWifiResult.setAdapter(adapterWifis);
@@ -310,7 +314,6 @@ public class WifiRecorderActivity extends Activity
 			dist = String.valueOf(Math.floor(getPicLen(WifiList.get(i).level) * 100) / 100);
 			WifiInfo[i] = WifiList.get(i).BSSID + "  " + dist;
 		}
-		String str ="test";
 	}
 	
 

@@ -131,11 +131,11 @@
                 {
                     "source": "/Users/yuehan/Documents/Subjects/Projects/MaraudersMap/app/src/main/res/values/strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,10,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,359,-1,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,44,-1,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,399,-1,-1,-1,-1,-1,-1"
+                        "startLines": "-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,4,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,196,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endColumns": "-1,40,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endOffsets": "-1,232,-1,-1,-1,-1,-1,-1,-1,-1,-1"
                     },
                     "to": {
                         "startLines": "2,5,6,7,8,9,10,11,12,13,14",
