@@ -37,6 +37,10 @@ import android.widget.Toast;
 
 public class WifiRecorderActivity extends Activity 
 {
+	//RSSI to Distance parameters
+	private static double coef = 23.5;
+	private static double A0 = -35;
+
 	private Button btnRefresh;
 //	private Button btnRecord;
 	private Button btnExit;
@@ -220,12 +224,12 @@ public class WifiRecorderActivity extends Activity
 	}
 
 	public double getRealLen(double rssi) {
-		double f=(-rssi-35)/24.0;
+		double f=(-rssi+A0)/coef;
 		return Math.pow(10,f);
 	}
 
 	public double getPicLen(double rssi) {
-        double f=(-rssi-35)/24.0;
+        double f=(-rssi+A0)/coef;
         double dist =  Math.pow(10,f);
         return dist*30;
     }
@@ -235,8 +239,6 @@ public class WifiRecorderActivity extends Activity
 		int nAP=3;
 
 		while(nAP<5){
-			Toast.makeText(WifiRecorderActivity.this
-					,"正在扫描...",Toast.LENGTH_LONG).show();
 			//开始扫描Wifi热点
 			mWifiMngr.startScan();
 			//得到扫描结果
@@ -260,6 +262,8 @@ public class WifiRecorderActivity extends Activity
 //				break;
 			}
 			nAP=WifiList.size();
+			Toast.makeText(WifiRecorderActivity.this
+					,"正在扫描...接收到"+String.valueOf(nAP)+"个AP的信号",Toast.LENGTH_LONG).show();
 		}
 		Toast.makeText(WifiRecorderActivity.this
 				,"可以定位",Toast.LENGTH_LONG).show();
