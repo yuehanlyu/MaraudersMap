@@ -42,9 +42,9 @@ public class WifiRecorderActivity extends Activity
 	private static double A0 = -43;
 
 	private Button btnRefresh;
-//	private Button btnRecord;
 	private Button btnExit;
 	private Button btnLocate;
+	private Button btnSensor;
 	private TextView txtTime;
 	private Calendar time;
 	private ListView listWifiResult;
@@ -63,9 +63,9 @@ public class WifiRecorderActivity extends Activity
 		setContentView(R.layout.main);
 		//取得界面资源
 		btnRefresh = (Button)findViewById(R.id.btnRefresh);
-//		btnRecord = (Button)findViewById(R.id.btnRecord);
 		btnExit = (Button)findViewById(R.id.btnExit);
 		btnLocate = (Button)findViewById(R.id.btnLocate);
+		btnSensor = (Button)findViewById(R.id.btnSensor);
 		txtTime = (TextView)findViewById(R.id.txtTime);
 		listWifiResult = (ListView)findViewById(R.id.listResult);
 		//设定wifi装置
@@ -76,9 +76,9 @@ public class WifiRecorderActivity extends Activity
 		GetWifiList();
 		//设定按钮功能
 		btnRefresh.setOnClickListener(btnListener);
-//		btnRecord.setOnClickListener(btnListener);
 		btnExit.setOnClickListener(btnListener);
 		btnLocate.setOnClickListener(btnListener);
+		btnSensor.setOnClickListener(btnListener);
 		//设定ListView选取事件
 		listWifiResult.setOnItemLongClickListener(listLongListener);
 	}
@@ -105,6 +105,10 @@ public class WifiRecorderActivity extends Activity
                 case R.id.btnLocate:   //定位
                     Intent locateIntent = new Intent(v.getContext(), LocateMeActivity.class);
                     startActivityForResult(locateIntent, 0);
+                    break;
+				case R.id.btnSensor:
+					Intent sensorIntent = new Intent(v.getContext(),SensorActivity.class);
+					startActivityForResult(sensorIntent,0);
 			}
 		}
 	};

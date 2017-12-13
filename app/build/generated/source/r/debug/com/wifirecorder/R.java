@@ -28,13 +28,24 @@ public final class R {
     public static final int btnExit=0x7f040003;
     public static final int btnLocate=0x7f040004;
     public static final int btnRefresh=0x7f040005;
-    public static final int btnshowcoordinates=0x7f040006;
-    public static final int listResult=0x7f040007;
-    public static final int txtTime=0x7f040008;
+    public static final int btnSensor=0x7f040006;
+    public static final int btnshowcoordinates=0x7f040007;
+    public static final int listResult=0x7f040008;
+    public static final int txtTime=0x7f040009;
+    public static final int txt_value1=0x7f04000a;
+    public static final int txt_value2=0x7f04000b;
+    public static final int txt_value3=0x7f04000c;
+    public static final int txt_value4=0x7f04000d;
+    public static final int txt_value5=0x7f04000e;
+    public static final int txt_value6=0x7f04000f;
+    public static final int txt_value7=0x7f040010;
+    public static final int txt_value8=0x7f040011;
+    public static final int txt_value9=0x7f040012;
   }
   public static final class layout {
-    public static final int main=0x7f050000;
-    public static final int myframelayout=0x7f050001;
+    public static final int activity_sensor=0x7f050000;
+    public static final int main=0x7f050001;
+    public static final int myframelayout=0x7f050002;
   }
   public static final class menu {
     public static final int wifi_recorder=0x7f060000;
@@ -52,8 +63,11 @@ public final class R {
     public static final int btnLocate=0x7f080005;
     public static final int btnRecord=0x7f080006;
     public static final int btnRefresh=0x7f080007;
-    public static final int locate_func=0x7f080008;
-    public static final int time=0x7f080009;
+    public static final int btnSensor=0x7f080008;
+    public static final int locate_func=0x7f080009;
+    public static final int sensor_title=0x7f08000a;
+    public static final int time=0x7f08000b;
+    public static final int title_activity_sensor=0x7f08000c;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f090000;
